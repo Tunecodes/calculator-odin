@@ -1,7 +1,31 @@
-#container {
-    
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
 }
 
-button{
+#container {
+    background-color: black;
+    border: 10px solid rgba(47, 47, 47, 1);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    gap: 2px;
     
 }
+ 
+
+
+#display {
+    grid-column: 1 / -1;
+   background-color: rgb(253, 253, 253);
+}
+
+#zero {
+    grid-column: span 2;
+
+}
+
+
