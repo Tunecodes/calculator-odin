@@ -7,35 +7,46 @@ dis.textContent = null;
 button.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.classList.contains("number")) {
+
+
+    
+
+
       dis.textContent += button.value;
-
-
-      console.log(b);
     } else if (button.classList.contains("operator")) {
-      a = dis.textContent;
+      let num = dis.textContent;
+      let operator = button.value;
+      a = num;
+      opp = operator;
+      console.log(a);
+      console.log(opp);
       dis.textContent = null;
     } else if (button.classList.contains("equal")) {
-      b = dis.textContent;
-      console.log(b);
-      console.log(operator(a, b, opp));
-      dis.textContent = operator(a, b, opp);
-      a = dis.textContent;
-      b = null;
+        b = dis.textContent;
+        console.log(b);
+        console.log(operator(a,b,opp));
+        dis.textContent = operator(a,b,opp);
+        a = dis.textContent;
+        b = null;
+
+
+
     }
   });
 });
 
-function operator(a, b, opp) {
-  if (opp === "+") return parseInt(a) + parseInt(b);
+function operator(a,b,opp) {
+    if (opp === "+")
+    return parseInt(a) + parseInt(b);
 }
 
-function updateNum(num, operator) {
-  if (a == null) {
-    a = num;
-  } else {
-    b = num;
-  }
-  opp = operator;
+function updateNum (num, operator) {
+    if (a == null) {
+        a = num;
+    } else {
+        b = num;
+    }
+    opp = operator;
 }
 
 function display(button) {}
@@ -47,3 +58,5 @@ function subtract(a, b) {}
 function multiply() {}
 
 function divide() {}
+
+
