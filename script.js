@@ -14,13 +14,15 @@ button.forEach((button) => {
       }
       dis.textContent += button.value;
     } else if (button.classList.contains("operator")) {
-      let num = dis.textContent;
-      let operator = button.value;
-      a = num;
-      opp = operator;
-      console.log(a);
-      console.log(opp);
-      dis.textContent = null;
+      if (opp == null) {
+        let num = dis.textContent;
+        let operator = button.value;
+        a = num;
+        opp = operator;
+        console.log(a);
+        console.log(opp);
+        dis.textContent = null;
+      }
     } else if (button.classList.contains("equal")) {
       b = dis.textContent;
       console.log(b);
@@ -29,6 +31,19 @@ button.forEach((button) => {
       a = dis.textContent;
       c = dis.textContent;
       b = null;
+      opp = null;
+    } else if (button.classList.contains("sign")) {
+      sign();
+    } else if (button.classList.contains("decimal")) {
+      if (!dis.textContent.includes(".")) {
+        dis.textContent += button.value;
+      }
+    } else if (button.classList.contains("percent")) {
+      if (dis.textContent != null) {
+        dis.textContent = parseFloat(dis.textContent) / 100;
+      }
+    } else if (button.classList.contains("clear")) {
+      dis.textContent = null;
     }
   });
 });
@@ -46,6 +61,15 @@ function operator(a, b, opp) {
   }
 }
 
+function sign() {
+  if (dis.textContent[0] != "-") dis.textContent = "-" + dis.textContent;
+  else if (dis.textContent == null) {
+    dis.textContent = "-";
+  } else if (dis.textContent[0] == "-") {
+    dis.textContent = dis.textContent.slice(1);
+  }
+}
+
 function updateNum(num, operator) {
   if (a == null) {
     a = num;
@@ -54,5 +78,3 @@ function updateNum(num, operator) {
   }
   opp = operator;
 }
-
-
