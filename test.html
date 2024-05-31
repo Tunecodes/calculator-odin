@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Resize</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .text {
+            white-space: nowrap;
+            display: inline-block;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="text">This is a long text that needs to fit within eqweqwetqweqweqeqeqhe div.</span>
+    </div>
+    <script>
+        function adjustFontSize(container, textElement) {
+            let fontSize = parseInt(window.getComputedStyle(textElement).fontSize);
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            textElement.style.fontSize = `${fontSize}px`;
+
+            while (textElement.scrollWidth > containerWidth || textElement.scrollHeight > containerHeight) {
+                fontSize--;
+                textElement.style.fontSize = `${fontSize}px`;
+                if (fontSize <= 0) break;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector(".container");
+            const textElement = document.querySelector(".text");
+            adjustFontSize(container, textElement);
+
+            // Optional: Re-adjust on window resize
+            window.addEventListener('resize', () => adjustFontSize(container, textElement));
+        });
+    </script>
+</body>
+</html>

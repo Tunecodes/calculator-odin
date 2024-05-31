@@ -1,31 +1,51 @@
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
+  font-size: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
 }
 
 #container {
-    background-color: black;
-    border: 10px solid rgba(47, 47, 47, 1);
-    border-radius: 4px;
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
-    gap: 2px;
-    
+  background-color: black;
+  border: 10px solid rgba(47, 47, 47, 1);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+  gap: 2px;
 }
- 
 
+button {
+  font-size: 20px;
+  font-weight: bold;
+}
 
 #display {
-    grid-column: 1 / -1;
-   background-color: rgb(253, 253, 253);
+  display: flex;
+  grid-column: 1 / -1;
+  background-color: rgba(253, 253, 253, 0.808);
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
 }
 
 #zero {
-    grid-column: span 2;
-
+  grid-column: span 2;
 }
 
+.number,
+.decimal {
+  background-color: rgb(70, 207, 111);
+}
 
+.sign,
+.percent,
+.clear {
+  background-color: rgb(21, 72, 167);
+}
+
+.operator,
+.equal {
+  background-color: rgb(231, 175, 52);
+}
